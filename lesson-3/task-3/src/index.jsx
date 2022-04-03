@@ -12,4 +12,4 @@ const user = {
   date: new Date(),
 };
 
-ReactDOM.render(<Comment user={user} />, document.querySelector('#root'));
+ReactDOM.render(<Comment author={user} />, document.querySelector('#root'));

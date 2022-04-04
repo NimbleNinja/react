@@ -1,0 +1,15 @@
+.profile {
+  margin: auto;
+  padding: 8px;
+  border: 3px solid #eee;
+  text-align: center;
+
+  &__name {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  &__birth {
+    font-style: italic;
+  }
+}

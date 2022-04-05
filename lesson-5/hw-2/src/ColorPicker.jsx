@@ -10,9 +10,9 @@ class ColorPicker extends Component {
     };
   }
 
-  showColorText = e => {
+  showColorText = color => {
     this.setState({
-      title: e.target.dataset.color,
+      title: color,
     });
   };
 
@@ -28,18 +28,15 @@ class ColorPicker extends Component {
         <div className='picker__title'>{this.state.title}</div>
         <div>
           <button
-            data-color='Coral'
-            onMouseEnter={this.showColorText}
+            onMouseEnter={() => this.showColorText('Coral')}
             onMouseLeave={this.resetTitle}
             className='picker__button picker__button_coral'></button>
           <button
-            data-color='Aqua'
-            onMouseEnter={this.showColorText}
+            onMouseEnter={() => this.showColorText('Aqua')}
             onMouseLeave={this.resetTitle}
             className='picker__button picker__button_aqua'></button>
           <button
-            data-color='Bisque'
-            onMouseEnter={this.showColorText}
+            onMouseEnter={() => this.showColorText('Bisque')}
             onMouseLeave={this.resetTitle}
             className='picker__button picker__button_bisque'></button>
         </div>

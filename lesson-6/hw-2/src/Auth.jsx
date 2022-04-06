@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Login from './Login';
 import Logout from './Logout';
-import Spiner from './Spiner';
+import Spinner from './Spinner';
 
 class Auth extends Component {
   constructor(props) {
@@ -32,7 +32,6 @@ class Auth extends Component {
 
     setTimeout(() => {
       this.setState({
-        isLoggedIn: false,
         isSpin: false,
       });
     }, 2000);
@@ -55,7 +54,7 @@ class Auth extends Component {
     return (
       <div className='panel'>
         {log}
-        {this.state.isSpin ? <Spiner size={'50px'} /> : null}
+        {this.state.isSpin ? <Spinner size={'50px'} /> : null}
       </div>
     );
   }

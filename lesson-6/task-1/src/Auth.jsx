@@ -12,9 +12,15 @@ class Auth extends Component {
     };
   }
 
-  onBtnHandler = () => {
+  onLoginHandler = () => {
     this.setState({
-      isLoggedIn: !this.state.isLoggedIn,
+      isLoggedIn: true,
+    });
+  };
+
+  onLogoutHandler = () => {
+    this.setState({
+      isLoggedIn: false,
     });
   };
 
@@ -23,9 +29,9 @@ class Auth extends Component {
     let button;
 
     if (status) {
-      button = <Logout onClick={this.onBtnHandler} />;
+      button = <Logout onClick={this.onLogoutHandler} />;
     } else {
-      button = <Login onClick={this.onBtnHandler} />;
+      button = <Login onClick={this.onLoginHandler} />;
     }
 
     return (

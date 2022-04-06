@@ -29,9 +29,9 @@ class Auth extends Component {
     let button;
 
     if (status) {
-      button = <Logout onLogin={this.onLogoutHandler} />;
+      button = <Logout onLogout={this.onLogoutHandler} />;
     } else {
-      button = <Login onLogout={this.onLoginHandler} />;
+      button = <Login onLogin={this.onLoginHandler} />;
     }
 
     return (

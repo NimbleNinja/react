@@ -13,11 +13,17 @@ const Pagination = ({
     currentPage === Math.ceil(totalItems / itemsPerPage);
   return (
     <div className='pagination'>
-      <button disabled={isPrevPageAvailable} onClick={goPrev} className='btn'>
+      <button
+        disabled={isPrevPageAvailable}
+        onClick={() => goPrev(isPrevPageAvailable)}
+        className='btn'>
         {isPrevPageAvailable ? '' : '←'}
       </button>
       <span className='pagination__page'>{currentPage}</span>
-      <button disabled={isNextPageAvailable} onClick={goNext} className='btn'>
+      <button
+        disabled={isNextPageAvailable}
+        onClick={() => goNext(isNextPageAvailable)}
+        className='btn'>
         {isNextPageAvailable ? '' : '→'}
       </button>
     </div>

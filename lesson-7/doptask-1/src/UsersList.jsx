@@ -14,9 +14,8 @@ class UsersList extends React.Component {
     };
   }
 
-  goNext = () => {
-    const maxPages = Math.ceil(this.state.totalItems / this.state.itemsPerPage);
-    if (this.state.currentPage === maxPages) {
+  goNext = isDisable => {
+    if (isDisable) {
       return;
     }
     this.setState({
@@ -24,8 +23,8 @@ class UsersList extends React.Component {
     });
   };
 
-  goPrev = () => {
-    if (this.state.currentPage === 1) {
+  goPrev = isDisable => {
+    if (isDisable) {
       return;
     }
     this.setState({

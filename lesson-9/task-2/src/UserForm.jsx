@@ -9,11 +9,10 @@ class UserForm extends Component {
   };
 
   inputHandler = e => {
-    const name = e.target.name;
-    const value =
-      e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    const { name, value, type, checked } = e.target;
+    const val = type === 'checkbox' ? checked : value;
     this.setState({
-      [name]: value,
+      [name]: val,
     });
   };
 

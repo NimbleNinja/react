@@ -5,12 +5,31 @@ class UserForm extends Component {
     this.formRef = node;
   };
 
+  //e.preventDefault();
+
+  //  const formData = [...new FormData(user)].reduce((acc, [key, value]) => {
+  //    return { ...acc, [key]: value };
+  //  }, {});
+
+  submitHandler = e => {
+    e.preventDefault();
+
+    const formData = [...new FormData(this.formRef)].reduce(
+      (acc, [key, value]) => {
+        return { ...acc, [key]: value };
+      },
+      {}
+    );
+
+    this.props.onSubmit(formData);
+  };
+
   render() {
     return (
       <form
         ref={this.setRef}
         className='login-form'
-        onSubmit={e => this.props.onSubmit(this.formRef, e)}>
+        onSubmit={this.submitHandler}>
         <h1 className='form-title'>Profile</h1>
         <div className='form-control'>
           <label className='form-label' htmlFor='name'>

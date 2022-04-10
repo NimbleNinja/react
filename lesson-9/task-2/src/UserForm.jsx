@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class UserForm extends Component {
   state = {
     name: '',
-    student: false,
-    occupation: 'london',
+    student: '',
+    occupation: '',
     about: '',
   };
 

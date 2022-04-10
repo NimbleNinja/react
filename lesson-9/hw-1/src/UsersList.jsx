@@ -11,12 +11,26 @@ class UsersList extends Component {
     };
   }
 
+  onChangeHandler = e => {
+    this.setState({
+      filterText: e.target.value,
+    });
+  };
+
   render() {
+    const filteredUsers = this.props.users.filter(({ name }) => {
+      return name.toLowerCase().includes(this.state.filterText.toLowerCase());
+    });
+
     return (
       <div className=''>
-        <Filter filterText='text' count={1} />
+        <Filter
+          filterText={this.state.filterText}
+          count={filteredUsers.length}
+          onChange={this.onChangeHandler}
+        />
         <ul className='users'>
-          {this.props.users.map(({ name, age, id }) => (
+          {filteredUsers.map(({ name, age, id }) => (
             <User name={name} age={age} key={id} />
           ))}
         </ul>

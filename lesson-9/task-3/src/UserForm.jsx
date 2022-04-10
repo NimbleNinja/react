@@ -5,12 +5,6 @@ class UserForm extends Component {
     this.formRef = node;
   };
 
-  //e.preventDefault();
-
-  //  const formData = [...new FormData(user)].reduce((acc, [key, value]) => {
-  //    return { ...acc, [key]: value };
-  //  }, {});
-
   submitHandler = e => {
     e.preventDefault();
 

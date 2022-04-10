@@ -4,7 +4,7 @@ class UserForm extends Component {
   state = {
     name: '',
     student: '',
-    occupation: 'london',
+    occupation: '',
     about: '',
   };
 
@@ -21,7 +21,7 @@ class UserForm extends Component {
     return (
       <form
         className='login-form'
-        onSubmit={this.props.onSubmit.bind(this, this.state)}>
+        onSubmit={e => this.props.onSubmit(this.state, e)}>
         <h1 className='form-title'>Profile</h1>
         <div className='form-control'>
           <label className='form-label' htmlFor='name'>

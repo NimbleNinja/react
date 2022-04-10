@@ -28,7 +28,7 @@ class Search extends Component {
           onChange={this.inpHandler}
           type='text'
         />
-        <button onClick={this.submitHandler} className='search__button'>
+        <button onSubmit={this.submitHandler} className='search__button'>
           Search
         </button>
       </form>

@@ -2,19 +2,21 @@ import React, { Component } from 'react';
 import UserMenu from './UserMenu';
 import UserProfile from './UserProfile';
 
-const url = 'https://api.github.com/users/';
-
 class App extends Component {
-  state = {
-    userData: null,
-  };
-
-  componentDidMount() {
-    this.fetchUser(this.props.userName);
+  constructor(props) {
+    super(props);
+    this.state = {
+      userData: null,
+    };
   }
 
-  fetchUser = userName => {
-    fetch(`${url}${userName}`)
+  componentDidMount() {
+    this.fetchUser(this.props.userId);
+  }
+
+  fetchUser = userId => {
+    const url = `https://api.github.com/users/${userId}`;
+    fetch(url)
       .then(data => data.json())
       .then(userData => {
         this.setState({

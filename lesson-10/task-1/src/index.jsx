@@ -5,4 +5,4 @@ import App from './App.jsx';
 
 const rootElement = document.querySelector('#root');
 
-ReactDOM.render(<App userName={'google'} />, rootElement);
+ReactDOM.render(<App userId={'google'} />, rootElement);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Board from './Board';
 import HistoryItem from './HistoryItem';
-import calculateWinner from './calculateWinner.js';
+import { calculateWinner } from './calculateWinner.js';
 
 class Game extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class Game extends Component {
 
   render() {
     const winner = calculateWinner(this.state.squares);
-    let status = winner
+    const status = winner
       ? `Winner is: ${winner.toUpperCase()}`
       : `Next step: ${this.state.xIsNext ? 'X' : 'O'}`;
 

@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-import Square from './Square';
+import Square from './Square.jsx';
 
 class Board extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className='board'>

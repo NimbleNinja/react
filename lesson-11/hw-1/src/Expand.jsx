@@ -1,19 +1,33 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Expand = ({ title, children, toggleShow, isShow }) => {
-  const iconClass = `fa-solid fa-chevron-${isShow ? 'up' : 'down'}`;
+class Expand extends Component {
+  state = {
+    isShow: false,
+  };
 
-  return (
-    <div className='expand border'>
-      <div className='expand__header'>
-        <span className='expand__title'>{title}</span>
-        <button className='expand__toggle-btn' onClick={toggleShow}>
-          <i className={iconClass}></i>
-        </button>
+  toggleShow = () => {
+    this.setState({
+      isShow: !this.state.isShow,
+    });
+  };
+
+  render() {
+    const { title, children } = this.props;
+    const isShow = this.state.isShow;
+    const iconClass = `fa-solid fa-chevron-${isShow ? 'up' : 'down'}`;
+
+    return (
+      <div className='expand border'>
+        <div className='expand__header'>
+          <span className='expand__title'>{title}</span>
+          <button className='expand__toggle-btn' onClick={this.toggleShow}>
+            <i className={iconClass}></i>
+          </button>
+        </div>
+        <div className='expand__content'>{isShow ? children : null}</div>
       </div>
-      {isShow ? children : null}
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Expand;

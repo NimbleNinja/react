@@ -11,7 +11,7 @@ const Expand = ({ title, children, toggleShow, isShow }) => {
           <i className={iconClass}></i>
         </button>
       </div>
-      <div className='expand__content'>{isShow ? children : null}</div>
+      {isShow ? children : null}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-const url = 'https://6230a0d6f113bfceed572660.mockapi.io/todolist/tasks/';
+const url = 'https://6230a0d6f113bfceed572660.mockapi.io/todolist/tasks';
 
 export const fetchTasks = () => {
   return fetch(url).then(response => {
@@ -27,7 +27,7 @@ export const postTaskOnServer = task => {
 };
 
 export const putTaskOnServer = (id, task) => {
-  return fetch(`${url}${id}`, {
+  return fetch(`${url}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json;charset=utf-8',
@@ -37,7 +37,7 @@ export const putTaskOnServer = (id, task) => {
 };
 
 export const deleteTaskFromServer = id => {
-  return fetch(`${url}${id}`, {
+  return fetch(`${url}/${id}`, {
     method: 'DELETE',
   });
 };

@@ -22,7 +22,7 @@ class TasksList extends Component {
   }
 
   createTask = text => {
-    if (text === '') {
+    if (!text) {
       return null;
     }
 
@@ -39,18 +39,19 @@ class TasksList extends Component {
   };
 
   updateTaskStatus = id => {
-    const currentTask = [...this.state.tasks].find(task => task.id === id);
+    const tasks = [...this.state.tasks];
+    const task = tasks.find(task => task.id === id);
 
     const taskToUpdate = {
-      done: !currentTask.done,
+      done: !task.done,
     };
 
     putTaskOnServer(id, taskToUpdate).then(() => {
-      const updatedTasksList = this.state.tasks.map(task => {
+      const updatedTasksList = tasks.map(task => {
         if (task.id === id) {
           return {
             ...task,
-            done: !currentTask.done,
+            done: !task.done,
           };
         }
         return task;

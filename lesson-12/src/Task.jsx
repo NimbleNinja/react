@@ -10,7 +10,7 @@ const Task = ({ text, done, id, updateTaskStatus, deleteTask }) => {
         type='checkbox'
         className='list-item__checkbox'
         defaultChecked={done}
-        onClick={() => updateTaskStatus(id, done)}
+        onClick={() => updateTaskStatus(id)}
       />
       <span className='list-item__text'>{text}</span>
       <button

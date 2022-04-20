@@ -38,9 +38,11 @@ class TasksList extends Component {
     });
   };
 
-  updateTaskStatus = (id, done) => {
+  updateTaskStatus = id => {
+    const currentTask = [...this.state.tasks].find(task => task.id === id);
+
     const taskToUpdate = {
-      done: !done,
+      done: !currentTask.done,
     };
 
     putTaskOnServer(id, taskToUpdate).then(() => {
@@ -48,7 +50,7 @@ class TasksList extends Component {
         if (task.id === id) {
           return {
             ...task,
-            done: !task.done,
+            done: !currentTask.done,
           };
         }
         return task;

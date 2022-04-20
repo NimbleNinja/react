@@ -38,18 +38,6 @@ class TasksList extends Component {
     });
   };
 
-  deleteTask = id => {
-    deleteTaskFromServer(id).then(() => {
-      const updatedTasksList = this.state.tasks.filter(task => {
-        return task.id !== id;
-      });
-
-      this.setState({
-        tasks: updatedTasksList,
-      });
-    });
-  };
-
   updateTaskStatus = (id, done) => {
     const taskToUpdate = {
       done: !done,
@@ -64,6 +52,18 @@ class TasksList extends Component {
           };
         }
         return task;
+      });
+
+      this.setState({
+        tasks: updatedTasksList,
+      });
+    });
+  };
+
+  deleteTask = id => {
+    deleteTaskFromServer(id).then(() => {
+      const updatedTasksList = this.state.tasks.filter(task => {
+        return task.id !== id;
       });
 
       this.setState({

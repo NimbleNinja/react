@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CreateTaskInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: '',
-    };
-  }
+  state = {
+    value: '',
+  };
 
   inputValueHandler = e => {
     this.setState({
@@ -40,7 +38,6 @@ class CreateTaskInput extends Component {
 
 export default CreateTaskInput;
 
-// 1. take input value
-// 2. create onChangeHandler
-// 3. create new task
-// 4. add task to list
+CreateTaskInput.propTypes = {
+  createTask: PropTypes.func,
+};

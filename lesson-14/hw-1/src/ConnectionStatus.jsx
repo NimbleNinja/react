@@ -3,17 +3,17 @@ import React, { useEffect, useState } from 'react';
 const ConnectionStatus = () => {
   const [status, setStatus] = useState('online');
 
-  const setOnlineStatus = e => {
+  const setOnStatus = e => {
     setStatus(e.type);
   };
 
   useEffect(() => {
-    window.addEventListener('offline', setOnlineStatus);
-    window.addEventListener('online', setOnlineStatus);
+    window.addEventListener('offline', setOnStatus);
+    window.addEventListener('online', setOnStatus);
 
     return () => {
-      window.removeEventListener('offline', setOnlineStatus);
-      window.removeEventListener('online', setOnlineStatus);
+      window.removeEventListener('offline', setOnStatus);
+      window.removeEventListener('online', setOnStatus);
     };
   }, []);
 

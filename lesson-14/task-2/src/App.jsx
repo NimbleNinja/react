@@ -19,11 +19,11 @@ const App = () => {
 
           {/*<!-- User -->*/}
           <Switch>
+            <Route exact path='/'>
+              <span>Select a user please</span>
+            </Route>
             <Route path='/users/:userId'>
               <User />
-            </Route>
-            <Route exact path='/users'>
-              <span>Select a user please</span>
             </Route>
           </Switch>
         </div>

@@ -15,7 +15,6 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react'],
   rules: {
     'no-alert': 0,
     'no-console': 0,

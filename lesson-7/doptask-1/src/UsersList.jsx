@@ -4,43 +4,39 @@ import User from './User';
 import './userslist.scss';
 
 class UsersList extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    currentPage: 1,
+  };
 
-    this.state = {
-      currentPage: 1,
-      totalItems: this.props.users.length,
-      itemsPerPage: 3,
-    };
-  }
+  itemsPerPage = 3;
 
-  goNext = isDisable => {
-    if (isDisable) {
-      return;
-    }
+  goNext = () => {
     this.setState({
       currentPage: this.state.currentPage + 1,
     });
   };
 
-  goPrev = isDisable => {
-    if (isDisable) {
-      return;
-    }
+  goPrev = () => {
     this.setState({
       currentPage: this.state.currentPage - 1,
     });
   };
 
   render() {
-    const from = this.state.itemsPerPage * (this.state.currentPage - 1);
-    const to = this.state.itemsPerPage * this.state.currentPage;
-    const currentPageUsers = this.props.users.slice(from, to);
+    const startIndex = this.itemsPerPage * (this.state.currentPage - 1);
+    const endIndex = this.itemsPerPage * this.state.currentPage;
+    const usersToRender = this.props.users.slice(startIndex, endIndex);
     return (
       <>
-        <Pagination goPrev={this.goPrev} goNext={this.goNext} {...this.state} />
+        <Pagination
+          goPrev={this.goPrev}
+          goNext={this.goNext}
+          currentPage={this.state.currentPage}
+          totalItems={this.props.users.length}
+          itemsPerPage={this.itemsPerPage}
+        />
         <ul className='users'>
-          {currentPageUsers.map(user => (
+          {usersToRender.map(user => (
             <User key={user.id} {...user} />
           ))}
         </ul>
